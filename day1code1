@@ -1,0 +1,43 @@
+//package com.vaibhava
+
+import java.util.Arrays;
+import java.util.Scanner;
+class bfgh {
+	int k=1;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter size of Array");
+		int n=sc.nextInt();
+		int[] arr=new int[n];
+		
+		for(int i=0;i<n;i++)
+			{
+			arr[i]=sc.nextInt();
+			}
+		
+		System.out.println("Enter the index from which rotation is to be performed ");
+		int r_p=sc.nextInt();
+		bfgh obj=new bfgh();
+		for(int i=1;i<=r_p;i++)
+		{
+			obj.rotatingarray(arr,r_p,n);
+		}
+		
+		
+		
+
+	}
+				public  void rotatingarray(int ar[],int rp,int size) {
+					int temp;
+					temp= ar[0];
+					for(int i=0;i<size-1;i++)
+					{
+						ar[i]=ar[i+1];
+					}
+					ar[size-1]=temp;
+					System.out.println("AFTER "+k+"Rotation Array is =    "+ Arrays.toString(ar));
+					k++;
+					}
+}
