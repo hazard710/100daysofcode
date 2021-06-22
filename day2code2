@@ -1,3 +1,6 @@
+/*Program to find all subarrays in a given array whose sum of elements is equal to the sum given by user*/
+
+
 //package com.vaibhava;
 import java.util.*;
 
