@@ -1,0 +1,46 @@
+//package com.vaibhava;
+import java.util.*;
+
+
+public class findingsubarray {
+	public static void main(String[] args) {
+		Scanner sc =new Scanner(System.in);
+		// TODO Auto-generated method stub
+		System.out.println("Enter array size and then elements");
+		int n=sc.nextInt();
+		int arr[]=new int[n]	;
+		for(int i=0;i<n;i++) 
+		{
+			arr[i]=sc.nextInt();
+		}
+		System.out.println("Enter the sum of the desired subarray");
+		int givensum=sc.nextInt();
+		findingsubarray obj=new findingsubarray();
+		obj.findssubarray(arr,givensum);
+
+
+
+	}
+	private void findssubarray(int ar[],int x) 
+	{ boolean found=false;
+		int sum=ar[0], first=0,givens=x,pos;
+		for(int i=1;i<=ar.length;i++) {
+			while(sum>givens&&first<i-1) {
+				sum=sum-ar[first];
+				first++;
+			}
+			if(sum==givens) {
+				pos=i-1;
+				System.out.println("Subarray found between index "+ first +"and "+ pos);
+				found=true;
+			}
+			if(i<ar.length) {
+				sum=sum+ar[i];
+			}
+		}
+		if(!found)
+		System.out.println("Subarray not found");
+
+	}
+
+}
