@@ -1,0 +1,42 @@
+package com.vaibhava;
+
+/* [2 3 4 5 7]
+ MISSING ELEMENT IS 6*/
+/*program for missing element*/
+
+
+import java.util.*;
+public class missingnumber {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("ENTER ARRAY SIZE AND ELEMENTS ");
+		int size=sc.nextInt();
+		int arr[]=new int[size];
+			
+			for(int i=0;i<size;i++)
+				arr[i]=sc.nextInt();
+	
+			missingnumber mn=new missingnumber();
+		int result = mn.findsmissingnumber(arr,size);
+		System.out.println("MISSING NUMBER IS "+ result);
+	
+	}
+	
+	
+	private int findsmissingnumber(int ar[],int n) {
+		int sum2=0,missnum;
+		int x1=ar[0];
+		int x2=ar[n-1];
+		float avg=(float)(x1+x2)/2;
+	float sum3=avg*(n+1);
+	
+	for(int i=0;i<n;i++)
+		sum2=sum2+ar[i];
+	
+	missnum=((int)sum3)-sum2;
+	return missnum;
+		
+	}
+
+}
