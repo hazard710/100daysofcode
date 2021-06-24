@@ -1,0 +1,65 @@
+// expression checker
+
+//package com.vaibhava;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class bracketschecker {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		// TODO Auto-generated method stub
+			
+		System.out.println("Enter Bracket Expression");
+		String exp =sc.nextLine();
+		bracketschecker brc=new bracketschecker();
+		int x= brc.checker(exp);
+		if(x==1)
+			System.out.println("BALANCED EXPRESSION");
+		else
+			System.out.println("UNBALANCED EXPRESSION");
+		
+		
+		
+	}
+			private int checker(String ex) {
+				int rex=0;
+				Stack<Character> s= new Stack<Character>();
+				
+				for(int i=0;i<ex.length();i++) {
+					
+					char c=ex.charAt(i);
+					if(c=='(' || c=='{' || c=='[')
+					{
+						s.push(c);
+						continue;
+					}
+					if(s.isEmpty()) {
+						return rex;
+					}char c2;
+					switch(c) {
+					case ')':
+						c2=s.pop();
+						if(c2=='{'||c2=='[')
+							
+							return rex;
+							break;
+					case '}':
+						c2=s.pop();
+						if(c2=='('||c2=='[')
+							
+							return rex;
+							break;
+					case ']':
+						c2=s.pop();
+						if(c2=='{'||c2=='(')
+							return rex;
+							break;
+					}
+					
+				} if(s.isEmpty())
+					rex=1;
+				return rex;
+			}
+}
