@@ -1,0 +1,106 @@
+/*program to implement two stacks using single array*/
+
+//package com.vaibhava;
+
+import java.util.*;
+
+public class twostacks {
+	int arr[];
+	int top1,top2;
+	int size;
+	
+	public twostacks(int n) {
+		arr =new int[n];
+		size=n;
+		top1=-1;
+		top2=size;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			Scanner sc=new Scanner(System.in);
+			System.out.println("ENTER SIZE OF SINGLE ARRAY");
+				int siz=sc.nextInt();
+				twostacks obj=new twostacks(siz);
+				int ele;
+				char c;
+				do {
+	 System.out.println("Enter your choice");
+	 System.out.println("1. PUSH ELEMENT IN STACK 1");
+	 System.out.println("2. PUSH ELEMENT IN STACK 2");
+	 System.out.println("3. POP ELEMENT FROM STACK 1");
+	 System.out.println("4. POP ELEMENT FROM STACK 2");
+	 int choice=sc.nextInt();
+	 switch(choice) {
+	 case 1:System.out.println("Enter element to push in stack 1");
+	 ele=sc.nextInt();
+	 obj.push1(ele);
+	 break;
+	 case 2:  System.out.println("Enter element to push in stack 2");
+	 ele=sc.nextInt();
+	 obj.push2(ele);
+	 break;
+	 case 3: System.out.println("POPPING ELEMENT from stack 1 ");
+	 System.out.println(obj.pop1());
+	 break;
+	 case 4:System.out.println("POPPING ELEMENT FROM STACK 2");
+	 System.out.println(obj.pop2());
+	 break;
+	 default:
+		 System.out.println("WRONG CHOICE");
+		 System.exit(1);
+	 
+	 }System.out.println("DO YOU WANNA CONTINUE PRESS Y FOR YES AND N FOR NO");
+	  c =sc.next().charAt(0);
+				}
+				while(c=='Y');
+				
+				
+	}
+	
+	void push1(int x) {
+		if(top1<top2-1) {
+			top1++;
+			arr[top1]=x;
+		}
+		else {
+			System.out.println("STACK OVERFLOW");
+		System.exit(1);
+	}
+	}
+	void push2(int x) {
+		if(top1<top2-1) {
+			top2--;
+			arr[top2]=x;
+		}
+		else {
+			System.out.println("STACK OVERFLOW");
+		System.exit(1);
+	}
+	}
+	public int pop1() {
+		if(top1>-1) {
+			int y=arr[top1];
+			top1--;
+		return y;
+		}
+		else {
+			System.out.println("Stack Underflow");
+			System.exit(1);
+		}
+		return 0;	
+			}
+	public int pop2() {
+		if(top2<size) {
+			int y=arr[top2];
+			top2++                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ;
+		return y;
+		}
+		else {
+			System.out.println("Stack Underflow");
+			System.exit(1);
+		}
+		return 0;	
+			}
+	
+}
